@@ -12,7 +12,7 @@ public class RespondMsg extends ListenerAdapter {
     public void onMessageReceived (MessageReceivedEvent event){
             String msg = event.getMessage().getContentRaw();
 
-            if(msg.startsWith(Constants.m_Prefix + "p1ng")){
+            if(msg.startsWith(Constants.m_Prefix + "p1ng") && !event.getAuthor().isBot()){
                 String response = "p0ng!";
                 event.getTextChannel().sendMessage(response).queue();
             }
