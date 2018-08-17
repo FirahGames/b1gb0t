@@ -1,5 +1,8 @@
+package Handlers;
+import Variables.Constants;
 import net.dv8tion.jda.core.events.ReadyEvent;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
 public class EventHandler extends ListenerAdapter {
@@ -16,5 +19,10 @@ public class EventHandler extends ListenerAdapter {
                 String response = "p0ng!";
                 event.getTextChannel().sendMessage(response).queue();
             }
+    }
+
+    @Override
+    public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
+        super.onGuildMessageReceived(event);
     }
 }
