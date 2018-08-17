@@ -14,7 +14,7 @@ public class Connection {
     public static void main(String[] args){
         JDA discord = null;
         try {
-            discord = new JDABuilder(AccountType.BOT).setToken(Constants.m_Token).setGame(Game.watching("DireDan fail")).addEventListener(new EventHandler()).buildBlocking();
+            discord = new JDABuilder(AccountType.BOT).setToken(Constants.token()).setGame(Game.watching("DireDan fail")).addEventListener(new EventHandler()).buildBlocking();
         } catch (LoginException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
