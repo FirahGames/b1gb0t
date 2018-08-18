@@ -25,7 +25,6 @@ public class CommandHandler {
         String[] args = event.getMessage().getContentRaw().split(" ");
         registeredCmds().forEach(cmd ->{
             List<String> aliases = new ArrayList<>(cmd.cmdNames());
-            aliases.add(cmd.cmdName());
             aliases.forEach(a -> {
                 if (args[0].equalsIgnoreCase(a))
                     cmd.cmdFunc(event, event.getMessage(), event.getMessage().getContentRaw(), event.getAuthor(), event.getGuild(), args);
