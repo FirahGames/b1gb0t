@@ -44,6 +44,7 @@ public class Help extends Command {
         });
         EmbedBuilder eBuilder = new EmbedBuilder();
         eBuilder.setTitle("b1g b0t help");
+        eBuilder.setThumbnail(Constants.image());
         eBuilder.setColor(Color.GREEN);
         categories.forEach((cat, cmds)->{
             StringBuilder line = new StringBuilder();

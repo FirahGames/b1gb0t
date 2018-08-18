@@ -31,6 +31,7 @@ public class Ping extends Command {
 
     @Override
     public void cmdFunc(GuildMessageReceivedEvent event, Message msg, String raw, User author, Guild server, String... args) {
-        event.getChannel().sendMessage(":ping_pong: Pong! " + event.getJDA().getPing() + "ms").queue();
+        String vowel = "aeiou".charAt((int)(Math.random()*5))+"";
+        event.getChannel().sendMessage(":ping_pong: P" + vowel + "ng! Heartbeat: " + event.getJDA().getPing() + "ms").queue();
     }
 }
