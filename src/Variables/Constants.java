@@ -7,7 +7,7 @@ import net.dv8tion.jda.core.JDABuilder;
 import javax.security.auth.login.LoginException;
 
 public class Constants {
-    private static final String m_Token = "NDgwMTEwMTc2MjM4NTY3NDc0.DljkDg.i1M4lY81PuBbrIGkaQmVB7zqMrk";
+    private static final String m_Token = "nice try lmao";
     private static final String m_Prefix = "b1g.";
 
     public static String token()
