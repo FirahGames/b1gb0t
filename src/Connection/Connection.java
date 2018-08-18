@@ -1,5 +1,6 @@
 package Connection;
 
+import Command.Utility.Info;
 import Command.Utility.Ping;
 import Handlers.CommandHandler;
 import Handlers.EventHandler;
@@ -40,5 +41,6 @@ public class Connection {
     public static void regCommands(){
         m_Commands.regCommand(new Help());
         m_Commands.regCommand(new Ping());
+        m_Commands.regCommand(new Info());
     }
 }
