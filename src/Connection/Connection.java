@@ -1,5 +1,8 @@
 package Connection;
 
+import Command.Information.Avatar;
+import Command.Information.ChannelInfo;
+import Command.Information.discrim;
 import Command.Utility.Info;
 import Command.Utility.Ping;
 import Handlers.CommandHandler;
@@ -42,5 +45,8 @@ public class Connection {
         m_Commands.regCommand(new Help());
         m_Commands.regCommand(new Ping());
         m_Commands.regCommand(new Info());
+        m_Commands.regCommand(new Avatar());
+        m_Commands.regCommand(new ChannelInfo());
+        m_Commands.regCommand(new discrim());
     }
 }
