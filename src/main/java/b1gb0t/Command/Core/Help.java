@@ -3,7 +3,7 @@ package b1gb0t.Command.Core;
 import b1gb0t.Command.AbstractCommand;
 import b1gb0t.Connection.Connection;
 import b1gb0t.Enums.CommandCat;
-import b1gb0t.Variables.Constants;
+import b1gb0t.Variables.BotVars;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.entities.Channel;
 import net.dv8tion.jda.core.entities.Guild;
@@ -14,7 +14,6 @@ import org.reflections.Reflections;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Modifier;
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -71,8 +70,8 @@ public class Help extends AbstractCommand {
             var embedBuilder = new EmbedBuilder();
             embedBuilder.setFooter("Requested by " + author.getName(), author.getAvatarUrl());
             embedBuilder.setTitle("b1g help");
-            embedBuilder.setThumbnail(Constants.image());
-            embedBuilder.setColor(Constants.color());
+            embedBuilder.setThumbnail(BotVars.image());
+            embedBuilder.setColor(BotVars.color());
             categories.forEach((cat, list) -> {
                         StringBuilder fieldString = new StringBuilder();
                         list.forEach(command -> {
@@ -90,11 +89,11 @@ public class Help extends AbstractCommand {
             if(Connection.getCommandHandler().getCommand(args[0]) != null)
                 cmd = Connection.getCommandHandler().getCommand(args[0]);
             if(cmd != null){
-                embedBuilder.setColor(Constants.color());
+                embedBuilder.setColor(BotVars.color());
                 embedBuilder.setTitle("Command: " + cmd.commandName());
                 embedBuilder.setAuthor("b1g.help");
                 embedBuilder.addField("Name", cmd.commandName(), true);
-                embedBuilder.addField("Usage", "``" + Constants.prefix() + cmd.commandUsage() + "``", true);
+                embedBuilder.addField("Usage", "``" + BotVars.prefix() + cmd.commandUsage() + "``", true);
                 embedBuilder.addField("Category",   cmd.getCommandCategory().getEmoticon() + cmd.getCommandCategory().getDisplayName(), true);
                 StringBuilder aliases = new StringBuilder();
                 for (String s: cmd.commandAliases()) {

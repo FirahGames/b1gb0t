@@ -22,6 +22,11 @@
             <artifactId>JDA</artifactId>
             <version>3.7.1_385</version>
         </dependency>
+        <dependency>
+            <groupId>com.eclipsesource.minimal-json</groupId>
+            <artifactId>minimal-json</artifactId>
+            <version>0.9.5</version>
+        </dependency>
     </dependencies>
     <repositories>
         <repository>

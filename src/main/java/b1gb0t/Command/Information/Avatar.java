@@ -2,7 +2,7 @@ package b1gb0t.Command.Information;
 
 import b1gb0t.Command.AbstractCommand;
 import b1gb0t.Enums.CommandCat;
-import b1gb0t.Variables.Constants;
+import b1gb0t.Variables.BotVars;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.entities.Channel;
 import net.dv8tion.jda.core.entities.Guild;
@@ -46,7 +46,7 @@ public class Avatar extends AbstractCommand {
         else
             aviGet = author;
         eBuilder.setImage(aviGet.getAvatarUrl());
-        eBuilder.setColor(Constants.color());
+        eBuilder.setColor(BotVars.color());
         eBuilder.setTitle(":mountain_snow:Avatar for **" + aviGet.getName() + "#" + aviGet.getDiscriminator() + "**");
         eBuilder.setFooter("Requested by " + author.getName(), author.getAvatarUrl());
         eBuilder.setTimestamp(Instant.now());

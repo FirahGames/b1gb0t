@@ -2,7 +2,7 @@ package b1gb0t.Command.Information;
 
 import b1gb0t.Command.AbstractCommand;
 import b1gb0t.Enums.CommandCat;
-import b1gb0t.Variables.Constants;
+import b1gb0t.Variables.BotVars;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.entities.*;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
@@ -44,7 +44,7 @@ public class ChannelInfo extends AbstractCommand {
             chan = message.getTextChannel();
         EmbedBuilder eBuilder = new EmbedBuilder();
         eBuilder.setAuthor("Channel: #" +  chan.getName(), "https://discordapp.com", guild.getIconUrl());
-        eBuilder.setColor(Constants.color());
+        eBuilder.setColor(BotVars.color());
         eBuilder.addField(":clock1: Creation Date/Time", chan.getCreationTime().format(DateTimeFormatter.RFC_1123_DATE_TIME), false);
         eBuilder.addField(":race_car: Position", chan.getPositionRaw() + "/" + guild.getTextChannels().size(), false);
         if(chan.getTopic() != null && !chan.getTopic().isEmpty())

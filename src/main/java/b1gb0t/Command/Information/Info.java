@@ -2,7 +2,7 @@ package b1gb0t.Command.Information;
 
 import b1gb0t.Command.AbstractCommand;
 import b1gb0t.Enums.CommandCat;
-import b1gb0t.Variables.Constants;
+import b1gb0t.Variables.BotVars;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.entities.Channel;
 import net.dv8tion.jda.core.entities.Guild;
@@ -10,17 +10,10 @@ import net.dv8tion.jda.core.entities.Message;
 import net.dv8tion.jda.core.entities.User;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 
-import javax.management.AttributeList;
-import javax.management.MBeanServerConnection;
-import javax.management.ObjectName;
 import com.sun.management.OperatingSystemMXBean;
 
-import java.awt.*;
-import java.io.IOException;
 import java.lang.management.ManagementFactory;
 import java.lang.management.RuntimeMXBean;
-import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
 import java.time.Instant;
 
 
@@ -67,8 +60,8 @@ public class Info extends AbstractCommand {
         embed.addField(":chipmunk: CPU Usage", String.format("%.2f", osBean.getProcessCpuLoad()) + "%", true);
         embed.addField(":floppy_disk: Operating System", System.getProperty("os.name"), true);
         embed.addField(":timer: Uptime", Long.toString(rb.getUptime() / 1000 / 60) + " Minutes", true);
-        embed.addField(":tools: Owner", event.getJDA().getUserById(Constants.ownerId()).getName() + "#" + event.getJDA().getUserById(Constants.ownerId()).getDiscriminator(), true);
-        embed.setColor(Constants.color());
+        embed.addField(":tools: Owner", event.getJDA().getUserById(BotVars.ownerId()).getName() + "#" + event.getJDA().getUserById(BotVars.ownerId()).getDiscriminator(), true);
+        embed.setColor(BotVars.color());
         embed.setFooter("Requested by " + author.getName(), author.getAvatarUrl());
         embed.setTimestamp(Instant.now());
         event.getChannel().sendMessage(embed.build()).queue();

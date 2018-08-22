@@ -2,7 +2,7 @@ package b1gb0t.Command.Information;
 
 import b1gb0t.Command.AbstractCommand;
 import b1gb0t.Enums.CommandCat;
-import b1gb0t.Variables.Constants;
+import b1gb0t.Variables.BotVars;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.entities.Channel;
 import net.dv8tion.jda.core.entities.Guild;
@@ -52,7 +52,7 @@ public class Discriminator extends AbstractCommand {
         List<User> discrimMatches = new ArrayList<>();
         EmbedBuilder eBuilder = new EmbedBuilder();
         eBuilder.setAuthor("Discriminator: #" + discrim);
-        eBuilder.setColor(Constants.color());
+        eBuilder.setColor(BotVars.color());
         eBuilder.setFooter("Requested by " + author.getName(), author.getAvatarUrl());
         eBuilder.setTimestamp(Instant.now());
         event.getJDA().getUsers().forEach(m -> {

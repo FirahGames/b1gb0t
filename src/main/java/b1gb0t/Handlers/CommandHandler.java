@@ -1,6 +1,6 @@
 package b1gb0t.Handlers;
 
-import b1gb0t.Variables.Constants;
+import b1gb0t.Variables.BotVars;
 import net.dv8tion.jda.core.entities.Message;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import org.reflections.Reflections;
@@ -29,7 +29,7 @@ public class CommandHandler {
         }
     }
     public boolean isCommand(String msg) {
-        return msg.startsWith(Constants.prefix());
+        return msg.startsWith(BotVars.prefix());
     }
 
     public void loadCommands() {
@@ -58,8 +58,8 @@ public class CommandHandler {
     }
     public AbstractCommand getCommand(String commandHelp){
         AbstractCommand command = null;
-        if (commandHelp.startsWith(Constants.prefix()))
-            commandHelp = commandHelp.replace(Constants.prefix(), "").trim();
+        if (commandHelp.startsWith(BotVars.prefix()))
+            commandHelp = commandHelp.replace(BotVars.prefix(), "").trim();
         if (m_CommandMap.containsKey(commandHelp) || m_Aliases.containsKey(commandHelp)) {
             command = m_CommandMap.containsKey(commandHelp) ? m_CommandMap.get(commandHelp) : m_Aliases.get(commandHelp);
         }
@@ -68,8 +68,8 @@ public class CommandHandler {
     }
     public void processMessage(GuildMessageReceivedEvent event, Message message) {
         var rawMessage = message.getContentRaw();
-        if (rawMessage.startsWith(Constants.prefix()))
-            rawMessage = rawMessage.replace(Constants.prefix(), "").trim();
+        if (rawMessage.startsWith(BotVars.prefix()))
+            rawMessage = rawMessage.replace(BotVars.prefix(), "").trim();
         else {
             return;
         }

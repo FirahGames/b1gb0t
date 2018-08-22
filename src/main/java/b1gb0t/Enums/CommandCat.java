@@ -1,7 +1,7 @@
 package b1gb0t.Enums;
 
 public enum CommandCat {
-    CREATOR("creator", ":crown:", "Development"),
+    CREATOR("owner", ":crown:", "Owner"),
     INFORMATIVE("information",":information_source:", "Information"),
     FUN("fun", ":game_die:", "Fun"),
     CORE("core", ":gear:", "Core"),
