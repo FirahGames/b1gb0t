@@ -60,7 +60,23 @@ public class SetAvatar extends AbstractCommand {
             event.getChannel().sendMessage("You aren't the owner!\n Owner ID: " + event.getJDA().getUserById(BotVars.ownerId()).getId() + "\nYour ID: " + message.getAuthor().getId()).queue();
             return;
         }
-        if (args.length == 1) {
+        if(!message.getAttachments().isEmpty()) {
+            try {
+                InputStream s = ImageUtil.imageFromUrl(message.getAttachments().get(0).getUrl());
+                if (s == null) {
+                    event.getChannel().sendMessage("Invalid URL! ").queue();
+
+                }
+                event.getJDA().getSelfUser().getManager().setAvatar(Icon.from(s)).queue(
+                        v -> event.getChannel().sendMessage("Changed AVI!").queue(),
+                        t -> event.getChannel().sendMessage("Failed to change AVI!").queue());
+                resaveJSON(message.getAttachments().get(0).getUrl());
+
+            } catch (IOException e) {
+                event.getChannel().sendMessage("Failed to change AVI! Error:"  + e.getMessage()).queue();
+            }
+        }
+        else if (args.length == 1) {
             InputStream s = ImageUtil.imageFromUrl(String.join(" ", args));
             if (s == null) {
                 event.getChannel().sendMessage("Invalid URL! ").queue();

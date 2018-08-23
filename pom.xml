@@ -27,6 +27,11 @@
             <artifactId>minimal-json</artifactId>
             <version>0.9.5</version>
         </dependency>
+        <dependency>
+            <groupId>com.vdurmont</groupId>
+            <artifactId>emoji-java</artifactId>
+            <version>4.0.0</version>
+        </dependency>
     </dependencies>
     <repositories>
         <repository>

@@ -91,19 +91,7 @@ public class Connection {
                 System.out.println("Set game!");
                 discord.getPresence().setGame(Game.playing(String.join(" ", String.join(" ", gamer))));
             }
-            InputStream s = ImageUtil.imageFromUrl(BotVars.image());
-            if(s==null)
-            {
-                System.out.println("Invalid avatar URL!");
-            }
-            else{
-                try {
-                    discord.getSelfUser().getManager().setAvatar(Icon.from(s)).queue(
-                            v -> System.out.println(" Successfully changed avatar."),
-                            t -> System.out.println(" Failed to change avatar."));
-                } catch(IOException e) {
-                }
-            }
+
         } catch (LoginException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {

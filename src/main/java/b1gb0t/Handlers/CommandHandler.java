@@ -69,7 +69,7 @@ public class CommandHandler {
     public void processMessage(GuildMessageReceivedEvent event, Message message) {
         var rawMessage = message.getContentRaw();
         if (rawMessage.startsWith(BotVars.prefix()))
-            rawMessage = rawMessage.replace(BotVars.prefix(), "").trim();
+            rawMessage = rawMessage.substring(BotVars.prefix().length()).trim();
         else {
             return;
         }

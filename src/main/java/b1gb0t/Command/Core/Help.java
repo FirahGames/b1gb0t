@@ -75,7 +75,10 @@ public class Help extends AbstractCommand {
             categories.forEach((cat, list) -> {
                         StringBuilder fieldString = new StringBuilder();
                         list.forEach(command -> {
-                            fieldString.append("``" + command.commandName() + "`` - ").append(command.commandDescription() + "\n");
+                            if(command == list.get(0))
+                                fieldString.append("``" + command.commandName() + "``");
+                            else
+                                fieldString.append(", ``" + command.commandName() + "``");
                         });
                         embedBuilder.addField(cat.getEmoticon() + cat.getDisplayName(), fieldString.toString(), false);
                     }
@@ -92,9 +95,12 @@ public class Help extends AbstractCommand {
                 embedBuilder.setColor(BotVars.color());
                 embedBuilder.setTitle("Command: " + cmd.commandName());
                 embedBuilder.setAuthor("b1g.help");
+
                 embedBuilder.addField("Name", cmd.commandName(), true);
+                embedBuilder.addField("Description", cmd.commandDescription(), true);
                 embedBuilder.addField("Usage", "``" + BotVars.prefix() + cmd.commandUsage() + "``", true);
                 embedBuilder.addField("Category",   cmd.getCommandCategory().getEmoticon() + cmd.getCommandCategory().getDisplayName(), true);
+
                 StringBuilder aliases = new StringBuilder();
                 for (String s: cmd.commandAliases()) {
                     if(s == cmd.commandAliases()[0])
@@ -103,7 +109,7 @@ public class Help extends AbstractCommand {
                         aliases.append(", " + s);
                 }
                 embedBuilder.addField("Aliases",   aliases.toString(), true);
-
+                embedBuilder.addBlankField(true);
                 event.getChannel().sendMessage(embedBuilder.build()).queue();
             }
         }
