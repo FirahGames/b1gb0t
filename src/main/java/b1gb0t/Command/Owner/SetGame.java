@@ -14,9 +14,7 @@ import java.io.IOException;
 import java.util.Arrays;
 
 public class SetGame extends AbstractCommand {
-    public SetGame(){
-        category = CommandCat.CREATOR;
-    }
+    public SetGame(){ super(); }
     private void resaveJSON(String name) {
         var user = Json.object().add("prefix", BotVars.prefix()).add("id", BotVars.ownerId()).add("token", BotVars.token()).add("image", BotVars.image()).add("game", name);
         String json = user.toString(WriterConfig.PRETTY_PRINT);

@@ -10,9 +10,7 @@ import net.dv8tion.jda.core.entities.User;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 
 public class SetName  extends AbstractCommand {
-    public SetName(){
-        category = CommandCat.CREATOR;
-    }
+    public SetName() { super(); }
 
     @Override
     public String commandName() {

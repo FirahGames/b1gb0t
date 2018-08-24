@@ -18,9 +18,7 @@ import java.time.Instant;
 
 
 public class Info extends AbstractCommand {
-    public Info() {
-        category = CommandCat.INFORMATIVE;
-    }
+    public Info() { super(); }
 
     @Override
     public String commandName() {
@@ -55,12 +53,13 @@ public class Info extends AbstractCommand {
         embed.addField(":crown: Creator", "firah#0017", true);
         embed.addField(":flag_us: Servers", "" + event.getJDA().getGuilds().size(), true);
         embed.addField(":selfie: Users", "" + event.getJDA().getUsers().size(), true);
-        embed.addField(":file_folder: Github", "http://bit.do/bigbotgit", true);
+        embed.addField(":file_folder: Github", "cnhv.co/96sx7", true);
         embed.addField(":tram: RAM Usage", Long.toString((Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / 1000 / 1000) + "MB", true);
         embed.addField(":chipmunk: CPU Usage", String.format("%.2f", osBean.getProcessCpuLoad()) + "%", true);
         embed.addField(":floppy_disk: Operating System", System.getProperty("os.name"), true);
         embed.addField(":timer: Uptime", Long.toString(rb.getUptime() / 1000 / 60) + " Minutes", true);
         embed.addField(":tools: Owner", event.getJDA().getUserById(BotVars.ownerId()).getName() + "#" + event.getJDA().getUserById(BotVars.ownerId()).getDiscriminator(), true);
+        embed.addBlankField(true);
         embed.setColor(BotVars.color());
         embed.setFooter("Requested by " + author.getName(), author.getAvatarUrl());
         embed.setTimestamp(Instant.now());

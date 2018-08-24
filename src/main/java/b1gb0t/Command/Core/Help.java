@@ -20,9 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Help extends AbstractCommand {
-    public Help(){
-        category = CommandCat.CORE;
-    }
+    public Help() { super(); }
     @Override
     public String commandName() {
         return "help";
@@ -45,9 +43,8 @@ public class Help extends AbstractCommand {
 
     @Override
     public void commandFunction(GuildMessageReceivedEvent event, Guild guild, Channel channel, User author, Message message, String rawMessage, String[] args) {
-        Map<CommandCat, List<AbstractCommand>> categories = new HashMap<>() {
-        };
-        var reflections = new Reflections("b1gb0t.Command");
+        Map<CommandCat, List<AbstractCommand>> categories = new HashMap<>();
+        Reflections reflections = new Reflections("b1gb0t.Command");
         var classes = reflections.getSubTypesOf(AbstractCommand.class);
         for (Class<? extends AbstractCommand> s : classes) {
             try {
@@ -56,12 +53,14 @@ public class Help extends AbstractCommand {
                 }
                 var packageName = s.getPackage().getName();
                 var c = s.getConstructor().newInstance();
+                c.setCommandCategory(CommandCat.fromPackage(packageName.substring(packageName.lastIndexOf(".") + 1)));
                 if (!categories.containsKey(c.getCommandCategory())) {
                     categories.put(c.getCommandCategory(), new ArrayList<>());
                 }
                 categories.get(c.getCommandCategory()).add(c);
-
-            } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
+            }
+            catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e)
+            {
                 e.printStackTrace();
             }
         }

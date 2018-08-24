@@ -13,9 +13,7 @@ import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import java.time.Instant;
 
 public class Shutdown extends AbstractCommand {
-    public Shutdown(){
-        category = CommandCat.CREATOR;
-    }
+    public Shutdown() { super(); }
     @Override
     public String commandName() {
         return "shutdown";

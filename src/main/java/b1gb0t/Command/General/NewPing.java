@@ -11,9 +11,7 @@ import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import java.time.temporal.ChronoUnit;
 
 public class NewPing extends AbstractCommand {
-    public NewPing(){
-        category = CommandCat.GENERAL;
-    }
+    public NewPing() { super(); }
     @Override
     public String commandDescription() {
         return "Returns the ping.";

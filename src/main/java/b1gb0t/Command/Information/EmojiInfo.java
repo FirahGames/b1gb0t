@@ -14,9 +14,7 @@ import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import java.time.Instant;
 
 public class EmojiInfo extends AbstractCommand {
-    public EmojiInfo() {
-        category = CommandCat.INFORMATIVE;
-    }
+    public EmojiInfo() { super(); }
 
     @Override
     public String commandName() {

@@ -15,9 +15,7 @@ import java.time.Instant;
 import java.time.format.DateTimeFormatter;
 
 public class ServerInfo extends AbstractCommand {
-    public ServerInfo(){
-        category = CommandCat.INFORMATIVE;
-    }
+    public ServerInfo(){ super(); }
 
     @Override
     public String commandName() {

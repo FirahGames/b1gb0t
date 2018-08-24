@@ -14,10 +14,7 @@ import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import java.time.Instant;
 
 public class Invite extends AbstractCommand {
-    public Invite(){
-        category= CommandCat.CORE;
-
-    }
+    public Invite() { super(); }
 
     @Override
     public String commandName() {

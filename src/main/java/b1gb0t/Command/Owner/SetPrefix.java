@@ -16,9 +16,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class SetPrefix extends AbstractCommand {
-    public SetPrefix(){
-        category = CommandCat.CREATOR;
-    }
+    public SetPrefix(){ super(); }
     private void resaveJSON(String name) {
         var user = Json.object().add("prefix", name).add("id", BotVars.ownerId()).add("token", BotVars.token()).add("image", BotVars.image()).add("game", BotVars.game());
         String json = user.toString(WriterConfig.PRETTY_PRINT);

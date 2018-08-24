@@ -82,6 +82,8 @@ public class CommandHandler {
         }
             if (m_CommandMap.containsKey(input[0]) || m_Aliases.containsKey(input[0])) {
                 AbstractCommand command = m_CommandMap.containsKey(input[0]) ? m_CommandMap.get(input[0]) : m_Aliases.get(input[0]);
+                if(command.commandName() != "ping")
+                    event.getChannel().sendTyping().complete();
                 command.commandFunction(event, event.getGuild(), event.getChannel(), event.getAuthor(), message, message.getContentRaw(), args);
             }
     }

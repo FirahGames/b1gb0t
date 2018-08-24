@@ -11,9 +11,7 @@ import java.time.Instant;
 import java.time.format.DateTimeFormatter;
 
 public class ChannelInfo extends AbstractCommand {
-    public ChannelInfo(){
-        category = CommandCat.INFORMATIVE;
-    }
+    public ChannelInfo() { super(); }
 
     @Override
     public String commandName() {

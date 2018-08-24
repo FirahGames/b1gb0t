@@ -15,9 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Discriminator extends AbstractCommand {
-    public Discriminator() {
-        category = CommandCat.INFORMATIVE;
-    }
+    public Discriminator() { super(); }
 
     @Override
     public String commandName() {

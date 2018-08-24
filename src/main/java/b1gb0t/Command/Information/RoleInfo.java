@@ -14,9 +14,7 @@ import java.time.Instant;
 import java.time.format.DateTimeFormatter;
 
 public class RoleInfo extends AbstractCommand {
-    public RoleInfo() {
-        category = CommandCat.INFORMATIVE;
-    }
+    public RoleInfo() { super(); }
 
     @Override
     public String commandName() {

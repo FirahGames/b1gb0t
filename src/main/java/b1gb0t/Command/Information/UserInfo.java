@@ -15,9 +15,7 @@ import java.util.List;
 import java.util.Set;
 
 public class UserInfo extends AbstractCommand {
-    public UserInfo(){
-        category = CommandCat.INFORMATIVE;
-    }
+    public UserInfo(){ super(); }
     @Override
     public String commandName() {
         return "userinfo";

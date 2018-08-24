@@ -15,9 +15,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class SetAvatar extends AbstractCommand {
-    public SetAvatar(){
-        category = CommandCat.CREATOR;
-    }
+    public SetAvatar(){ super(); }
     private void resaveJSON(String name) {
         var user = Json.object().add("prefix", BotVars.prefix()).add("id", BotVars.ownerId()).add("token", BotVars.token()).add("image", name).add("game", BotVars.game());
         String json = user.toString(WriterConfig.PRETTY_PRINT);

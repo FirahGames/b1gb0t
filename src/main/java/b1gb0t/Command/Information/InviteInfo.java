@@ -11,9 +11,7 @@ import java.time.Instant;
 import java.time.format.DateTimeFormatter;
 
 public class InviteInfo extends AbstractCommand {
-    public InviteInfo(){
-        category = CommandCat.INFORMATIVE;
-    }
+    public InviteInfo() { super(); }
 
     @Override
     public String commandName() {

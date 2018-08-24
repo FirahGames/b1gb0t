@@ -13,9 +13,7 @@ import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import java.time.Instant;
 
 public class Avatar extends AbstractCommand {
-    public Avatar(){
-        category = CommandCat.INFORMATIVE;
-    }
+    public Avatar() { super(); }
 
     @Override
     public String commandName() {
